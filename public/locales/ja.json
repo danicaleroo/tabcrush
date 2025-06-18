@@ -1,0 +1,8 @@
+{
+  "todo": "今日は何をしますか？",
+  "tasks": "タスク",
+  "completed": "完了",
+  "deleteAll": "すべて削除",
+  "settings": "設定",
+  "noCompletedTasks": "完了したタスクはありません"
+}

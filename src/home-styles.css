@@ -1,0 +1,79 @@
+/* home-styles.css - Landing page specific styles */
+@import "./base.css";
+
+@font-face {
+	font-family: "InterVariable";
+	src: url("/fonts/inter-variable.ttf") format("truetype");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	--font-inter: -apple-system, "InterVariable", sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	@apply font-inter font-medium text-base text-zinc-700;
+}
+
+::selection {
+	@apply bg-accent/25;
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
+}
+
+@keyframes float-reverse {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(8px);
+	}
+}
+
+@keyframes heartbeat {
+	0% {
+		transform: scale(1);
+	}
+	14% {
+		transform: scale(1.05);
+	}
+	28% {
+		transform: scale(1);
+	}
+	42% {
+		transform: scale(1.1);
+	}
+	70% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.animate-float {
+	animation: float 3s var(--ease-primary) infinite;
+}
+
+.animate-float-reverse {
+	animation: float-reverse 4s var(--ease-primary) infinite;
+}
+
+.animate-heartbeat {
+	animation: heartbeat 1s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}

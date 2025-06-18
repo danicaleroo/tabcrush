@@ -1,0 +1,8 @@
+{
+  "todo": "오늘 무엇을 하실 건가요?",
+  "tasks": "작업",
+  "completed": "완료됨",
+  "deleteAll": "모두 삭제",
+  "settings": "설정",
+  "noCompletedTasks": "완료된 작업이 없습니다"
+}

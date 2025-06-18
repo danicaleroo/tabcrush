@@ -1,0 +1,8 @@
+{
+  "todo": "今天你要做什么？",
+  "tasks": "任务",
+  "completed": "已完成",
+  "deleteAll": "全部删除",
+  "settings": "设置",
+  "noCompletedTasks": "没有已完成的任务"
+}
