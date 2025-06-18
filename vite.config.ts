@@ -11,7 +11,7 @@ export default defineConfig({
 			includeAssets: [
 				"icon.svg",
 				"InterDisplay-Medium.woff2",
-				"inter-variable.ttf",
+				"fonts/inter-variable.ttf",
 				"favicon-16x16.png",
 				"favicon-32x32.png",
 				"apple-touch-icon.png",
@@ -20,7 +20,7 @@ export default defineConfig({
 				"favicon.ico",
 			],
 			workbox: {
-				globPatterns: ["**/*.{js,css,svg,woff2,json,png,html,ico}"],
+				globPatterns: ["**/*.{js,css,svg,woff2,ttf,json,png,html,ico}"],
 				navigateFallback: "index.html",
 				navigateFallbackDenylist: [/sitemap\.xml$/, /robots\.txt$/],
 				runtimeCaching: [
