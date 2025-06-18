@@ -124,6 +124,7 @@ export default defineConfig({
 			input: {
 				main: "index.html",
 				app: "new.html",
+				privacy: "privacy.html",
 			},
 			output: {
 				manualChunks: undefined,
