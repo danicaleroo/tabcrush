@@ -2,12 +2,11 @@
 import { DateTimeDisplay } from "./features/datetime";
 import { SettingsManager } from "./features/settings";
 import { TaskManager } from "./features/tasks";
-import { InputHandler } from "./handlers/input-handler";
-import { TabHandler } from "./handlers/tab-handler";
 import { ClickHandler } from "./handlers/click-handler";
+import { InputHandler } from "./handlers/input-handler";
 import { KeyboardHandler } from "./handlers/keyboard-handler";
+import { TabHandler } from "./handlers/tab-handler";
 import { LanguageLoader } from "./loaders/language-loader";
-import { StateManager } from "./core/state-manager";
 
 class App {
 	private tasks!: TaskManager;
@@ -16,12 +15,10 @@ class App {
 	private tabHandler!: TabHandler;
 	private clickHandler!: ClickHandler;
 	private keyboardHandler!: KeyboardHandler;
-	private stateManager!: StateManager;
 
 	async init(): Promise<void> {
 		await LanguageLoader.load();
 
-		this.stateManager = StateManager.getInstance();
 		this.settings = new SettingsManager();
 		this.tasks = new TaskManager(this.settings.get());
 
@@ -34,10 +31,6 @@ class App {
 		});
 
 		this.tasks.render();
-
-		this.stateManager.subscribe((state) => {
-			console.log("State updated:", state);
-		});
 	}
 
 	private initHandlers(): void {
