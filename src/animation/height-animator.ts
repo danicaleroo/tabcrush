@@ -12,16 +12,16 @@ export class HeightAnimator {
 				? this.stateManager.getActiveTasks()
 				: this.stateManager.getCompletedTasks();
 
-		let height = LAYOUT.CONTAINER_PADDING;
+		let height = LAYOUT.CONTAINER_PADDING + LAYOUT.PANEL_BORDER;
 
 		if (state.currentTab === "tasks") {
 			height += LAYOUT.INPUT_HEIGHT;
-			if (visibleTasks.length > 0) {
-				height += LAYOUT.INPUT_MARGIN;
-			}
 		}
 
 		if (visibleTasks.length > 0) {
+			if (state.currentTab === "tasks") {
+				height += LAYOUT.FIRST_TASK_MARGIN;
+			}
 			visibleTasks.forEach((task, index) => {
 				const taskEl = document.querySelector(
 					`[data-task-id="${task.id}"]`
@@ -47,9 +47,14 @@ export class HeightAnimator {
 			callback();
 
 			const endHeight = this.calculatePanelHeight();
-			if (Math.abs(startHeight - endHeight) < 1) {
-				element.style.height = "";
-				resolve();
+			if (Math.abs(startHeight - endHeight) < 2) {
+				// Keep the height locked for the duration of the primary animation to
+				// avoid micro-shifts caused by other element transitions (e.g., the
+				// input container sliding out).
+				setTimeout(() => {
+					element.style.height = "";
+					resolve();
+				}, ANIMATION.TAB);
 				return;
 			}
 
