@@ -186,7 +186,7 @@
 
     <main id="main-content" class="flex max-h-[calc(100vh-16rem)] w-full max-w-[30rem] flex-col gap-2 " role="main">
       <section aria-labelledby="app-title"
-        class="flex w-full flex-col gap-2 rounded-tl-[1.5rem] rounded-tr-2xl rounded-br-2xl rounded-bl-2xl border border-100 bg-white p-2 h-full">
+        class="flex w-full flex-col gap-2 rounded-t-[1.5rem] rounded-br-2xl rounded-bl-2xl border border-100 bg-white p-2 h-full">
         <h1 id="app-title" class="sr-only">Task Manager</h1>
 
         <nav class="relative flex items-center justify-between text-base" aria-label="Task view navigation">
@@ -203,14 +203,15 @@
             </button>
           </div>
 
-          <div id="delete-all-wrapper" class="overflow-hidden">
+          <div id="delete-all-wrapper" class="overflow-hidden px-3">
             <button id="delete-all-button" data-i18n="deleteAll"
               class="rounded-md px-2 text-xs text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
               tabindex="-1" aria-describedby="delete-all-description">
               Delete all
             </button>
           </div>
-          <div id="delete-all-description" class="sr-only">Delete all completed tasks</div>
+          <div id="delete-all-description" class="sr-only" data-i18n="deleteAllDescription">Delete all completed tasks
+          </div>
 
           <div id="tabs-overlay-container" aria-hidden="true"
             class="tabs-overlay pointer-events-none absolute inset-0 z-10">
@@ -225,11 +226,11 @@
           class="flex flex-col overflow-hidden rounded-xl border border-100 bg-50 p-3" data-current-tab="tasks">
 
           <div id="input-task-container">
-            <label for="input-task" class="sr-only">Add new task</label>
+            <label for="input-task" class="sr-only" data-i18n="addNewTask">Add new task</label>
             <input id="input-task" placeholder="What will you do today?" data-i18n-placeholder="todo"
               class="max-h-9 w-full rounded-full border border-200/50 bg-100 p-2 px-3 text-600 placeholder:text-400 focus:outline-none focus:ring-2 focus:ring-300"
               aria-describedby="input-task-help" autocomplete="off" />
-            <div id="input-task-help" class="sr-only">Press Enter to add task</div>
+            <div id="input-task-help" class="sr-only" data-i18n="inputTaskHelp">Press Enter to add task</div>
           </div>
 
           <div class="tasks-container flex h-full flex-col" id="tasks-container">
@@ -254,7 +255,7 @@
         aria-describedby="settings-description">
         Settings
       </button>
-      <div id="settings-description" class="sr-only">Open application settings</div>
+      <div id="settings-description" class="sr-only" data-i18n="openSettingsDescription">Open application settings</div>
     </footer>
 
     <dialog id="settings-dialog"
