@@ -147,12 +147,6 @@ body {
 	@apply mt-2;
 }
 
-/* Task Enter Animation */
-.task-item-enter {
-	@apply opacity-0;
-	transform: translateY(-8px) scale(0.98);
-}
-
 /* Task Exit Animation - properly animates height collapse */
 .task-item-exit {
 	@apply opacity-0 overflow-hidden;
@@ -279,8 +273,8 @@ body {
 }
 
 #input-task-container.input-hidden {
-	@apply opacity-50;
-	transform: translateY(-12px);
+	@apply opacity-0;
+	/* transform: translateY(-64px); */
 	margin-top: -36px;
 }
 
