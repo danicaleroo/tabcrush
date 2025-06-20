@@ -10,19 +10,28 @@ export default defineConfig({
 			registerType: "autoUpdate",
 			includeAssets: [
 				"icon.svg",
-				"InterDisplay-Medium.woff2",
-				"fonts/inter-variable.ttf",
-				"favicon-16x16.png",
-				"favicon-32x32.png",
-				"apple-touch-icon.png",
-				"pwa-192x192.png",
-				"pwa-512x512.png",
+				"fonts/InterDisplay-Medium.woff2",
 				"favicon.ico",
 			],
 			workbox: {
-				globPatterns: ["**/*.{js,css,svg,woff2,ttf,json,png,html,ico}"],
+				globPatterns: [
+					"index.html",
+					"assets/*.{js,css}",
+					"fonts/InterDisplay-Medium.woff2",
+					"icon.svg",
+					"favicon.ico",
+				],
 				navigateFallback: "index.html",
-				navigateFallbackDenylist: [/sitemap\.xml$/, /robots\.txt$/],
+				navigateFallbackDenylist: [
+					/^\/new\.html/,
+					/^\/privacy\.html/,
+					/sitemap\.xml$/,
+					/robots\.txt$/,
+					/^\/locales\//,
+					/^\/pwa-/,
+					/^\/apple-/,
+					/^\/favicon-/,
+				],
 				runtimeCaching: [
 					{
 						urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -46,6 +55,28 @@ export default defineConfig({
 							expiration: {
 								maxEntries: 20,
 								maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+							},
+						},
+					},
+					{
+						urlPattern: /\.(png|jpg|jpeg|svg|webp|woff2|ttf)$/,
+						handler: "CacheFirst",
+						options: {
+							cacheName: "assets",
+							expiration: {
+								maxEntries: 50,
+								maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+							},
+						},
+					},
+					{
+						urlPattern: /\/(new|privacy)\.html$/,
+						handler: "NetworkFirst",
+						options: {
+							cacheName: "pages",
+							expiration: {
+								maxEntries: 10,
+								maxAgeSeconds: 60 * 60 * 24 * 7, // 7 days
 							},
 						},
 					},
@@ -135,7 +166,6 @@ export default defineConfig({
 				assetFileNames: "[name]-[hash].[ext]",
 			},
 		},
-		// Enable advanced optimizations
 		cssCodeSplit: true,
 		assetsInlineLimit: 4096,
 		reportCompressedSize: false,
