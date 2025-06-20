@@ -1,9 +1,8 @@
 {
 	"name": "tabcrush",
 	"description": "tabcrush is a minimalistic task manager that replaces your browser's new tab page and helps you focus on what matters.",
-	"version": "1.0",
+	"version": "1.0.1",
 	"manifest_version": 2,
-	"permissions": ["tabs"],
 	"chrome_url_overrides": {
 		"newtab": "tabcrush.html"
 	},
