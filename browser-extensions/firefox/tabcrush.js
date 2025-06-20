@@ -3,11 +3,10 @@
 	const PROJECT_URL = "https://www.tabcrush.com/new";
 
 	function updateCurrentTab() {
-		const tabs = browser.tabs || chrome.tabs;
-		tabs
+		browser.tabs
 			.getCurrent()
 			.then(function (tab) {
-				if (tab && tab.id) tabs.update(tab.id, { url: PROJECT_URL });
+				if (tab && tab.id) browser.tabs.update(tab.id, { url: PROJECT_URL });
 				else window.location.replace(PROJECT_URL);
 			})
 			.catch(function () {
