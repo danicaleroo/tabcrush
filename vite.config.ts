@@ -8,75 +8,51 @@ export default defineConfig({
 		tailwindcss(),
 		VitePWA({
 			registerType: "autoUpdate",
-			includeAssets: [
-				"icon.svg",
-				"fonts/InterDisplay-Medium.woff2",
-				"favicon.ico",
-			],
+			injectRegister: "script",
+			includeAssets: [],
 			workbox: {
 				globPatterns: [
-					"index.html",
+					"new.html",
 					"assets/*.{js,css}",
 					"fonts/InterDisplay-Medium.woff2",
 					"icon.svg",
 					"favicon.ico",
 				],
-				navigateFallback: "index.html",
-				navigateFallbackDenylist: [
-					/^\/new\.html/,
-					/^\/privacy\.html/,
-					/sitemap\.xml$/,
-					/robots\.txt$/,
-					/^\/locales\//,
-					/^\/pwa-/,
-					/^\/apple-/,
-					/^\/favicon-/,
-				],
+				navigateFallback: null,
+				navigateFallbackDenylist: [/.*/], // Denegar todo
 				runtimeCaching: [
-					{
-						urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-						handler: "CacheFirst",
-						options: {
-							cacheName: "google-fonts",
-							expiration: {
-								maxEntries: 10,
-								maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
-							},
-							cacheableResponse: {
-								statuses: [0, 200],
-							},
-						},
-					},
 					{
 						urlPattern: /\/locales\/.*\.json$/,
 						handler: "CacheFirst",
 						options: {
 							cacheName: "locales",
 							expiration: {
-								maxEntries: 20,
-								maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+								maxEntries: 11, // Solo los idiomas que tienes
+								maxAgeSeconds: 60 * 60 * 24 * 30,
 							},
 						},
 					},
 					{
-						urlPattern: /\.(png|jpg|jpeg|svg|webp|woff2|ttf)$/,
+						// PWA assets solo cuando se necesiten
+						urlPattern: /\/(pwa-|apple-touch-icon|favicon-).*\.(png|ico)$/,
 						handler: "CacheFirst",
 						options: {
-							cacheName: "assets",
+							cacheName: "pwa-assets",
 							expiration: {
-								maxEntries: 50,
-								maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+								maxEntries: 10,
+								maxAgeSeconds: 60 * 60 * 24 * 365,
 							},
 						},
 					},
 					{
-						urlPattern: /\/(new|privacy)\.html$/,
+						// Manifest solo cuando se necesite
+						urlPattern: /manifest\.webmanifest$/,
 						handler: "NetworkFirst",
 						options: {
-							cacheName: "pages",
+							cacheName: "manifest",
 							expiration: {
-								maxEntries: 10,
-								maxAgeSeconds: 60 * 60 * 24 * 7, // 7 days
+								maxEntries: 1,
+								maxAgeSeconds: 60 * 60 * 24 * 7,
 							},
 						},
 					},
@@ -85,43 +61,7 @@ export default defineConfig({
 				clientsClaim: true,
 				cleanupOutdatedCaches: true,
 			},
-			manifest: {
-				name: "tabcrush",
-				short_name: "tabcrush",
-				description:
-					"tabcrush is a lightning-fast, offline-first task manager for your browser's new tab. Manage todos locally with zero latency, complete privacy, and no internet required. Free forever.",
-				theme_color: "#ffffff",
-				background_color: "#ffffff",
-				display: "standalone",
-				icons: [
-					{
-						src: "/favicon-16x16.png",
-						sizes: "16x16",
-						type: "image/png",
-					},
-					{
-						src: "/favicon-32x32.png",
-						sizes: "32x32",
-						type: "image/png",
-					},
-					{
-						src: "/apple-touch-icon.png",
-						sizes: "180x180",
-						type: "image/png",
-					},
-					{
-						src: "/pwa-192x192.png",
-						sizes: "192x192",
-						type: "image/png",
-					},
-					{
-						src: "/pwa-512x512.png",
-						sizes: "512x512",
-						type: "image/png",
-						purpose: "any maskable",
-					},
-				],
-			},
+			manifest: false,
 		}),
 	],
 	build: {
