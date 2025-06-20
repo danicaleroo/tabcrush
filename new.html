@@ -6,62 +6,28 @@
   <link rel="icon" type="image/svg+xml" href="/icon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Theme and additional meta -->
+  <!-- Theme and essential meta -->
   <meta name="theme-color" content="#F34242" />
   <meta name="description"
     content="Open an instant to-do list. Write tasks, tick them off, and stay focused offline. No sign-ups, nothing shared." />
   <meta name="robots" content="index, follow" />
   <title>New Tab</title>
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="tabcrush - Free, Private & Offline To-Do App" />
-  <meta property="og:description"
-    content="Open an instant to-do list. Write tasks, tick them off, and stay focused offline. No sign-ups, nothing shared." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.tabcrush.com/new" />
-  <meta property="og:image" content="https://www.tabcrush.com/og-image.jpg" />
-
-  <!-- Twitter Card tags -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="tabcrush - Free, Private & Offline To-Do App" />
-  <meta name="twitter:description" content="Open an instant to-do list. Write, tick, done. Offline, no sign-ups." />
-  <meta name="twitter:image" content="https://www.tabcrush.com/twitter-image.jpg" />
-  <meta name="twitter:creator" content="@danicaleroo" />
 
   <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy"
     content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; script-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; form-action 'self';" />
 
-  <!-- Preload and resource hints -->
+  <!-- Critical resource preload -->
   <link rel="preload" href="/fonts/InterDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/src/new.css" as="style" />
-  <link rel="dns-prefetch" href="https://github.com" />
-  <link rel="dns-prefetch" href="https://x.com" />
 
   <link rel="stylesheet" href="/src/new.css" />
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "tabcrush",
-    "description": "Loads an instant, private to-do list with one click—write and finish tasks offline, no accounts required.",
-    "url": "https://www.tabcrush.com/new",
-    "applicationCategory": "ProductivityApplication",
-    "operatingSystem": "Web Browser",
-    "browserRequirements": "Modern web browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
-
+  <!-- Inline critical scripts -->
   <script>
+    // Panel height calculation
     (function () {
       try {
-        // Read tasks from localStorage
         const tasksData = localStorage.getItem("tasks");
         if (!tasksData) return;
 
@@ -70,49 +36,40 @@
 
         if (activeTasks.length === 0) return;
 
-        // Constants matching CSS
-        const INPUT_HEIGHT = 36;           // Input container height
-        const INPUT_MARGIN = 8;            // mb-2 = 8px
-        const BASE_TASK_HEIGHT = 37.33;    // Single-line task height
-        const TASK_SPACING = 4;            // space-y-1 = 4px between tasks
-        const CONTAINER_PADDING = 24;      // p-3 = 12px * 2
-        const CHARS_PER_LINE = 43;         // Approximate characters before wrap
+        const INPUT_HEIGHT = 36;
+        const INPUT_MARGIN = 8;
+        const BASE_TASK_HEIGHT = 37.33;
+        const TASK_SPACING = 4;
+        const CONTAINER_PADDING = 24;
+        const CHARS_PER_LINE = 43;
 
         let totalTasksHeight = 0;
 
-        // Calculate total height of tasks
         activeTasks.forEach((task, index) => {
           const textLength = task.text.length;
           const lines = Math.max(1, Math.ceil(textLength / CHARS_PER_LINE));
           let taskHeight = BASE_TASK_HEIGHT;
           if (lines > 1) {
-            taskHeight += (lines - 1) * 20; // Additional height per line
+            taskHeight += (lines - 1) * 20;
           }
 
           totalTasksHeight += taskHeight;
 
-          // Add spacing between tasks (not after last task)
           if (index < activeTasks.length - 1) {
             totalTasksHeight += TASK_SPACING;
           }
         });
 
-        // Calculate total panel height
         const panelHeight = INPUT_HEIGHT + INPUT_MARGIN + CONTAINER_PADDING + totalTasksHeight;
 
-        // Set CSS custom property
         document.documentElement.style.setProperty('--preload-panel-height', `${panelHeight}px`);
 
-        // Apply height when DOM is ready
         function setPanelHeight() {
           const panel = document.getElementById('tasks-panel');
           if (!panel) return;
           panel.style.height = `${panelHeight}px`;
-          // Remove explicit height after a short delay to allow natural sizing
           setTimeout(() => {
             panel.style.height = '';
-            // Remove the preload height variable so CSS falls back to auto,
-            // allowing the panel to grow/shrink naturally after the first paint
             document.documentElement.style.removeProperty('--preload-panel-height');
           }, 50);
         }
@@ -123,35 +80,32 @@
           setPanelHeight();
         }
 
-      } catch (e) {
-        // Silently fail if anything goes wrong
-      }
+      } catch (e) { }
     })();
   </script>
 
   <script>
+    // Language detection
     (function () {
       try {
+        const SUPPORTED_LANGUAGES = ["en", "es", "fr", "de", "it", "pt", "zh", "ja", "ru", "hi", "ko"];
         const saved = localStorage.getItem("language");
         const browserLang = navigator.language.split("-")[0];
-        const lang =
-          saved || (SUPPORTED_LANGUAGES.includes(browserLang) ? browserLang : "en");
+        const lang = saved || (SUPPORTED_LANGUAGES.includes(browserLang) ? browserLang : "en");
         document.documentElement.setAttribute("lang", lang);
       } catch (e) { }
     })();
   </script>
+
   <script>
+    // Theme detection
     (function () {
       try {
         const settingsStr = localStorage.getItem("settings");
         let theme = "light";
         if (settingsStr) {
           const settings = JSON.parse(settingsStr);
-          if (
-            settings &&
-            settings.theme &&
-            ["dark", "light"].includes(settings.theme)
-          ) {
+          if (settings && settings.theme && ["dark", "light"].includes(settings.theme)) {
             theme = settings.theme;
           }
         } else {
@@ -164,11 +118,35 @@
       }
     })();
   </script>
+
+  <script>
+    // Lazy load PWA assets only if needed
+    (function () {
+      // Only load manifest if installed as PWA or if user might install
+      if ('serviceWorker' in navigator) {
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+        const isPWA = window.navigator.standalone || isStandalone;
+
+        if (isPWA || document.referrer.includes('install')) {
+          const link = document.createElement('link');
+          link.rel = 'manifest';
+          link.href = '/manifest.webmanifest';
+          document.head.appendChild(link);
+
+          // Also load PWA icons
+          const appleIcon = document.createElement('link');
+          appleIcon.rel = 'apple-touch-icon';
+          appleIcon.href = '/apple-touch-icon.png';
+          document.head.appendChild(appleIcon);
+        }
+      }
+    })();
+  </script>
+
   <script fetchpriority="high" type="module" src="/src/main.ts"></script>
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-  <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
+
+  <!-- Only essential favicon -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 
 <body>
