@@ -120,25 +120,19 @@
   </script>
 
   <script>
-    // Lazy load PWA assets only if needed
     (function () {
-      // Only load manifest if installed as PWA or if user might install
       if ('serviceWorker' in navigator) {
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-        const isPWA = window.navigator.standalone || isStandalone;
-
-        if (isPWA || document.referrer.includes('install')) {
-          const link = document.createElement('link');
-          link.rel = 'manifest';
-          link.href = '/manifest.webmanifest';
-          document.head.appendChild(link);
-
-          // Also load PWA icons
-          const appleIcon = document.createElement('link');
-          appleIcon.rel = 'apple-touch-icon';
-          appleIcon.href = '/apple-touch-icon.png';
-          document.head.appendChild(appleIcon);
-        }
+        window.addEventListener('load', () => {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+              navigator.serviceWorker.register('/sw.js');
+            });
+          } else {
+            setTimeout(() => {
+              navigator.serviceWorker.register('/sw.js');
+            }, 1000);
+          }
+        });
       }
     })();
   </script>
