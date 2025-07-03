@@ -1,0 +1,19 @@
+{
+	"todo": "¿Qué vas a hacer hoy?",
+	"tasks": "Tareas",
+	"completed": "Completado",
+	"deleteAll": "Borrar todo",
+	"settings": "Configuración",
+	"noCompletedTasks": "No hay tareas completadas",
+	"markTaskIncomplete": "Marcar tarea como incompleta",
+	"markTaskComplete": "Marcar tarea como completa",
+	"taskLabel": "Tarea",
+	"createdLabel": "Creado",
+	"deleteTaskLabel": "Eliminar tarea",
+	"close": "Cerrar",
+	"addNewTask": "Añadir nueva tarea",
+	"inputTaskHelp": "Pulsa Enter para añadir la tarea",
+	"deleteAllDescription": "Eliminar todas las tareas completadas",
+	"openSettingsDescription": "Abrir la configuración de la aplicación",
+	"visitGithub": "Visitar el repositorio de GitHub"
+}

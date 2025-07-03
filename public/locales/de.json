@@ -1,0 +1,19 @@
+{
+	"todo": "Was wirst du heute tun?",
+	"tasks": "Aufgaben",
+	"completed": "Erledigt",
+	"deleteAll": "Alles löschen",
+	"settings": "Einstellungen",
+	"noCompletedTasks": "Keine erledigten Aufgaben",
+	"markTaskIncomplete": "Aufgabe als unvollständig markieren",
+	"markTaskComplete": "Aufgabe als erledigt markieren",
+	"taskLabel": "Aufgabe",
+	"createdLabel": "Erstellt",
+	"deleteTaskLabel": "Aufgabe löschen",
+	"close": "Schließen",
+	"addNewTask": "Neue Aufgabe hinzufügen",
+	"inputTaskHelp": "Eingabetaste drücken, um Aufgabe hinzuzufügen",
+	"deleteAllDescription": "Alle erledigten Aufgaben löschen",
+	"openSettingsDescription": "Anwendungseinstellungen öffnen",
+	"visitGithub": "GitHub-Repository besuchen"
+}

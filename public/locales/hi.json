@@ -1,0 +1,19 @@
+{
+	"todo": "आज आप क्या करेंगे?",
+	"tasks": "कार्य",
+	"completed": "पूर्ण",
+	"deleteAll": "सभी हटाएँ",
+	"settings": "सेटिंग्स",
+	"noCompletedTasks": "कोई पूर्ण कार्य नहीं",
+	"markTaskIncomplete": "कार्य को अपूर्ण के रूप में चिह्नित करें",
+	"markTaskComplete": "कार्य को पूर्ण के रूप में चिह्नित करें",
+	"taskLabel": "कार्य",
+	"createdLabel": "बनाया गया",
+	"deleteTaskLabel": "कार्य हटाएं",
+	"close": "बंद करें",
+	"addNewTask": "नया कार्य जोड़ें",
+	"inputTaskHelp": "कार्य जोड़ने के लिए एंटर दबाएं",
+	"deleteAllDescription": "सभी पूर्ण किए गए कार्यों को हटाएं",
+	"openSettingsDescription": "एप्लिकेशन सेटTINGS खोलें",
+	"visitGithub": "GitHub रिपोजिटरी पर जाएं"
+}

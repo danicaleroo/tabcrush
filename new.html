@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F34242" />
+  <meta name="description"
+    content="Open an instant to-do list. Write tasks, tick them off, and stay focused offline. No sign-ups, nothing shared." />
+  <meta name="robots" content="index, follow" />
+  <title>New Tab</title>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
+  <link rel="preload" href="/fonts/InterDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/src/new.css" as="style" />
+  <link rel="stylesheet" href="/src/new.css" />
+  <script src="/src/preload/preload-tasks-height.ts" type="module"></script>
+  <script src="/src/preload/preload-language.ts" type="module"></script>
+  <script src="/src/preload/preload-theme.ts" type="module"></script>
+  <script src="/src/service-worker.ts" type="module"></script>
+  <script fetchpriority="high" type="module" src="/src/main.ts"></script>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+</head>
+
+
+<body>
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent text-white px-4 py-2 rounded-md z-50">Skip
+    to main content</a>
+  <div id="app-container"
+    class="flex h-screen w-screen flex-col items-center justify-between gap-8 bg-50 p-8 px-4 text-400 md:px-8">
+    <header>
+      <time id="datetime-display" aria-live="polite"></time>
+    </header>
+    <main id="main-content" class="flex max-h-[calc(100vh-16rem)] w-full max-w-[30rem] flex-col gap-2 " role="main">
+      <section aria-labelledby="app-title"
+        class="flex w-full flex-col gap-2 rounded-t-[1.5rem] rounded-br-2xl rounded-bl-2xl border border-100 bg-white p-2 h-full">
+        <h1 id="app-title" class="sr-only">Task Manager</h1>
+        <nav class="relative flex items-center justify-between text-base" aria-label="Task view navigation">
+          <div class="flex items-center text-sm" role="tablist" aria-label="Task List Navigation">
+            <button id="tab-button-tasks" data-i18n="tasks"
+              class="rounded-full px-4 py-1.5 hover:!text-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-300 focus-visible:ring-offset-2"
+              role="tab" aria-controls="tasks-panel" aria-selected="true" tabindex="0">
+              Tasks
+            </button>
+            <button id="tab-button-completed" data-i18n="completed"
+              class="rounded-full px-4 py-1.5 hover:!text-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-300 focus-visible:ring-offset-2"
+              role="tab" aria-controls="tasks-panel" aria-selected="false" tabindex="-1">
+              Completed
+            </button>
+          </div>
+          <div id="delete-all-wrapper" class="overflow-hidden px-3">
+            <button id="delete-all-button" data-i18n="deleteAll"
+              class="rounded-md px-2 text-xs text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              tabindex="-1" aria-describedby="delete-all-description">
+              Delete all
+            </button>
+          </div>
+          <div id="delete-all-description" class="sr-only" data-i18n="deleteAllDescription">Delete all completed tasks
+          </div>
+          <div id="tabs-overlay-container" aria-hidden="true"
+            class="tabs-overlay pointer-events-none absolute inset-0 z-10">
+            <div class="flex h-full items-center rounded-full bg-50 text-sm text-600">
+              <div class="px-4 py-0.5" data-i18n="tasks">Tasks</div>
+              <div class="px-4 py-0.5" data-i18n="completed">Completed</div>
+            </div>
+          </div>
+        </nav>
+        <div id="tasks-panel" role="tabpanel" aria-labelledby="tab-button-tasks"
+          class="flex flex-col overflow-hidden rounded-xl border border-100 bg-50 p-3" data-current-tab="tasks">
+          <div id="input-task-container">
+            <label for="input-task" class="sr-only" data-i18n="addNewTask">Add new task</label>
+            <input id="input-task" placeholder="What will you do today?" data-i18n-placeholder="todo"
+              class="max-h-9 w-full rounded-full border border-200/50 bg-100 p-2 px-3 text-600 placeholder:text-400 focus:outline-none focus:ring-2 focus:ring-300"
+              aria-describedby="input-task-help" autocomplete="off" />
+            <div id="input-task-help" class="sr-only" data-i18n="inputTaskHelp">Press Enter to add task</div>
+          </div>
+          <div class="tasks-container flex h-full flex-col" id="tasks-container">
+            <ul class="flex flex-col gap-1 overflow-y-auto" id="tasks-list" role="list" aria-live="polite"
+              aria-label="Task list">
+            </ul>
+            <ul class="flex flex-col gap-1 overflow-y-auto" id="completed-list" role="list" aria-live="polite"
+              aria-label="Completed task list" style="display: none;">
+            </ul>
+          </div>
+          <div id="task-status-announcer" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
+          <div id="task-count-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <button id="settings-button" data-i18n="settings"
+        class="rounded-md p-2 text-sm text-500 hover:text-600 focus:outline-none focus:ring-2 focus:ring-300 focus:ring-offset-2"
+        aria-describedby="settings-description">
+        Settings
+      </button>
+      <div id="settings-description" class="sr-only" data-i18n="openSettingsDescription">Open application settings</div>
+    </footer>
+    <dialog id="settings-dialog"
+      class="mx-auto my-auto w-full max-w-lg scale-95 border-none bg-transparent p-0 opacity-0 px-4 open:scale-100 open:opacity-100 focus:outline-none"
+      aria-labelledby="settings-dialog-title" aria-describedby="settings-dialog-description">
+      <div
+        class="flex w-full flex-col gap-2 rounded-tl-[1.5rem] rounded-tr-2xl rounded-br-2xl rounded-bl-2xl border border-200 bg-white p-2">
+        <h2 id="settings-dialog-title" class="sr-only">Application Settings</h2>
+        <div id="settings-dialog-description" class="sr-only">Configure your preferences for the task manager</div>
+        <form id="settings-form" class="flex flex-col gap-4 p-4 text-600" role="form">
+        </form>
+      </div>
+    </dialog>
+  </div>
+</body>
+
+</html>

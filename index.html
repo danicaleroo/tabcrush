@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tabcrush - Free, Private & Offline To-Do App for Browser New Tab</title>
+  <meta name="description"
+    content="tabcrush is a lightning-fast, offline-first task manager for your browser's new tab. Manage todos locally with zero latency, complete privacy, and no internet required. Free forever." />
+  <link rel="canonical" href="https://www.tabcrush.com/" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Dani Calero" />
+  <meta name="keywords" content="todo app, task manager, browser extension, offline, private, free, new tab" />
+  <meta name="theme-color" content="#F34242" />
+  <meta property="og:title" content="tabcrush - Free, Private & Offline To-Do App" />
+  <meta property="og:description"
+    content="Lightning-fast, offline-first todo app for your browser's new tab. Manage todos locally with complete privacy." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.tabcrush.com/" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:site_name" content="tabcrush" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="tabcrush - Free, Private & Offline To-Do App" />
+  <meta name="twitter:description"
+    content="Lightning-fast, offline-first todo app for your browser's new tab. Manage todos locally with complete privacy." />
+  <meta name="twitter:image" content="https://www.tabcrush.com/twitter-image.jpg" />
+  <meta name="twitter:creator" content="@danicaleroo" />
+  <link rel="preload" href="/src/home-styles.css" as="style" />
+  <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
+  <link rel="dns-prefetch" href="https://www.tabcrush.com" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
+
+  <link rel="stylesheet" href="/src/home-styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "tabcrush",
+    "description": "Lightning-fast, offline-first task manager for your browser's new tab. Manage todos locally with zero latency, complete privacy, and no internet required.",
+    "url": "https://www.tabcrush.com",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Dani Calero",
+      "url": "https://www.x.com/danicaleroo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mirus Studio",
+      "url": "https://mirus.studio/en"
+    },
+    "featureList": [
+      "100% private - tasks never leave your device",
+      "Works offline - no internet required",
+      "Lightning fast - loads in under 20ms",
+      "Multi-language support",
+      "Open source and free forever",
+      "Browser extension for new tab replacement"
+    ],
+    "browserRequirements": "Modern web browser with extension support",
+    "softwareVersion": "1.0",
+    "datePublished": "2025-06-17",
+    "dateModified": "2025-06-17",
+    "inLanguage": ["en","es","fr","de","it","pt","zh","ja","ru","hi","ko"]
+  }
+  </script>
+
+  <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+</head>
+
+<body class="bg-zinc-50 p-4 md:p-8 w-full">
+  <!-- Skip to main content link -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent-dark text-white px-4 py-2 rounded-md z-50">Skip
+    to main content</a>
+
+  <div class="max-w-[1000px] mx-auto flex flex-col md:items-center md:justify-center">
+    <header>
+      <img src="/logo.svg" alt="tabcrush logo" class="h-8 self-start md:self-center animate-heartbeat"
+        loading="eager" />
+    </header>
+
+    <main id="main-content">
+      <section
+        class="relative w-full flex flex-col md:items-center justify-center md:text-center py-16 pb-8 md:py-48 gap-8"
+        aria-labelledby="hero-heading">
+        <div class="space-y-4">
+          <div class="flex flex-col gap-3">
+            <span class="text-accent" aria-label="Product name">@tabcrush</span>
+            <h1 id="hero-heading" class="text-3xl md:text-4xl font-semibold leading-10 md:leading-12">Free, private and
+              offline To-Do app
+              <br class="hidden md:block">
+              <span class="italic font-medium">
+                that replaces your browser's new tab.
+              </span>
+            </h1>
+          </div>
+          <p class="text-zinc-500 max-w-[66ch] text-balance">
+            Eliminate the friction between thinking about tasks and actually managing them. Your todo list becomes as
+            accessible as opening a new tab, making organization effortless and automatic.
+          </p>
+        </div>
+        <nav class="flex gap-2" aria-label="Primary navigation">
+          <a href="#how-to-install"
+            class="bg-accent-dark hover:bg-accent-dark-hover text-white px-4 py-2 rounded-full duration-300 ease-in-out hover:scale-[1.02] hover:-rotate-1 focus:outline-none focus:ring-2 focus:ring-accent-dark focus:ring-offset-2"
+            aria-describedby="how-to-install-description">How to install</a>
+          <a href="https://www.tabcrush.com/new" target="_blank" rel="noopener noreferrer"
+            class="bg-zinc-100 text-zinc-700 px-4 py-2 rounded-full border border-zinc-200 hover:bg-zinc-200 duration-300 ease-in-out hover:scale-[1.02] hover:rotate-1 focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2"
+            aria-describedby="demo-description">See it in action</a>
+        </nav>
+        <div id="how-to-install-description" class="sr-only">Learn how to set up tabcrush as your browser's new tab page
+        </div>
+        <div id="demo-description" class="sr-only">View a live demo of tabcrush in action (opens in new tab)</div>
+
+        <div class="flex flex-col w-full max-w-lg gap-2" aria-hidden="true">
+          <!-- Decorative floating task examples -->
+          <div
+            class="hidden md:flex absolute animate-float-reverse opacity-75 top-12 left-0 xl:-left-32 items-center justify-between gap-20 rounded-md border border-zinc-100 bg-white pr-2 text-sm text-zinc-600 pointer-events-none -rotate-6 shadow-md shadow-zinc-200/25">
+            <div class="flex w-full items-center justify-between gap-1.5 rounded-md px-3 py-1.5 text-left">
+              <div class="py-1 self-start">
+                <svg class="h-4 min-w-4 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 3h18v18H3z" />
+                </svg>
+              </div>
+              <span class="pointer-events-none break-words">Clean kitchen</span>
+            </div>
+            <span class="p-1.5 text-xs text-zinc-400">Today</span>
+          </div>
+
+          <div
+            class="hidden md:flex absolute animate-float opacity-75 top-12 right-0 xl:-right-24 items-center justify-between gap-20 rounded-md border border-zinc-100 bg-white pr-2 text-sm text-zinc-600 pointer-events-none rotate-3 shadow-md shadow-zinc-200/25">
+            <div class="flex w-full items-center justify-between gap-1.5 rounded-md px-3 py-1.5 text-left">
+              <div class="py-1 self-start">
+                <svg class="h-4 min-w-4 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 3h18v18H3z" />
+                </svg>
+              </div>
+              <span class="pointer-events-none break-words">Call boss</span>
+            </div>
+            <span class="p-1.5 text-xs text-zinc-400">Today</span>
+          </div>
+
+          <div
+            class="hidden md:flex absolute animate-float-reverse opacity-75 bottom-24 right-0 xl:-right-40 items-center justify-between gap-20 rounded-md border border-zinc-100 bg-white pr-2 text-sm text-zinc-600 pointer-events-none rotate-6 shadow-md shadow-zinc-200/25">
+            <div class="flex w-full items-center gap-1.5 rounded-md px-3 py-1.5 text-left">
+              <div class="py-1 self-start">
+                <svg class="h-4 min-w-4 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344" />
+                  <path d="m9 11 3 3L22 4" />
+                </svg>
+              </div>
+              <span class="break-words line-through">Finish sales report</span>
+            </div>
+            <span class="p-1.5 text-xs text-zinc-400">Yesterday</span>
+          </div>
+
+          <div
+            class="hidden md:flex absolute animate-float opacity-75 bottom-24 left-0 xl:-left-40 items-center justify-between gap-20 rounded-md border border-zinc-100 bg-white pr-2 text-sm text-zinc-600 pointer-events-none -rotate-3 shadow-md shadow-zinc-200/25">
+            <div class="flex w-full items-center gap-1.5 rounded-md px-3 py-1.5 text-left">
+              <div class="py-1 self-start">
+                <svg class="h-4 min-w-4 text-current" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344" />
+                  <path d="m9 11 3 3L22 4" />
+                </svg>
+              </div>
+              <span class="break-words line-through">Delete my todo app</span>
+            </div>
+            <span class="p-1.5 text-xs text-zinc-400">Today</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="flex flex-wrap gap-4 w-full" aria-labelledby="features-heading">
+        <h2 id="features-heading" class="sr-only">Key Features</h2>
+
+        <article class="bg-white border border-zinc-100 p-6 rounded-xl grow basis-60">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path
+              d="M5.83333 8.33366V5.83366C5.83333 4.72859 6.27232 3.66878 7.05372 2.88738C7.83512 2.10598 8.89493 1.66699 10 1.66699C11.1051 1.66699 12.1649 2.10598 12.9463 2.88738C13.7277 3.66878 14.1667 4.72859 14.1667 5.83366V8.33366M10.8333 13.3337C10.8333 13.7939 10.4602 14.167 10 14.167C9.53976 14.167 9.16667 13.7939 9.16667 13.3337C9.16667 12.8734 9.53976 12.5003 10 12.5003C10.4602 12.5003 10.8333 12.8734 10.8333 13.3337ZM4.16667 8.33366H15.8333C16.7538 8.33366 17.5 9.07985 17.5 10.0003V16.667C17.5 17.5875 16.7538 18.3337 15.8333 18.3337H4.16667C3.24619 18.3337 2.5 17.5875 2.5 16.667V10.0003C2.5 9.07985 3.24619 8.33366 4.16667 8.33366Z"
+              stroke="#F34242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <h3 class="text-lg mt-4 mb-1 font-semibold">100% private</h3>
+          <p class="text-zinc-500 text-sm">
+            Your tasks never leave your device. No accounts, no tracking, no servers.
+          </p>
+        </article>
+
+        <article class="bg-white border border-zinc-100 p-6 rounded-xl grow basis-60">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <g clip-path="url(#clip0_84_5672)">
+              <path
+                d="M9.99935 16.667H10.0077M7.08268 13.6912C7.86155 12.9277 8.90871 12.5001 9.99935 12.5001C11.09 12.5001 12.1371 12.9277 12.916 13.6912M4.16602 10.7162C5.34771 9.55775 6.84752 8.77738 8.47435 8.47449M15.8327 10.7162C15.3309 10.2243 14.769 9.79785 14.1602 9.44699M1.66602 7.35033C2.69651 6.42872 3.87276 5.68445 5.14685 5.14783M18.3327 7.35033C17.0616 6.2135 15.5714 5.34878 13.9537 4.80935C12.336 4.26992 10.625 4.0672 8.92602 4.21366M1.66602 1.66699L18.3327 18.3337"
+                stroke="#F34242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <defs>
+              <clipPath id="clip0_84_5672">
+                <rect width="20" height="20" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <h3 class="text-lg mt-4 mb-1 font-semibold">Works offline</h3>
+          <p class="text-zinc-500 text-sm">
+            All your tasks are stored locally and work perfectly without any connection.
+          </p>
+        </article>
+
+        <article class="bg-white border border-zinc-100 p-6 rounded-xl grow basis-60">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path
+              d="M3.33422 11.6667C3.17653 11.6673 3.02191 11.623 2.88835 11.5392C2.75479 11.4554 2.64775 11.3354 2.57968 11.1931C2.51161 11.0509 2.4853 10.8922 2.5038 10.7356C2.52231 10.579 2.58487 10.4309 2.68422 10.3084L10.9342 1.80839C10.9961 1.73696 11.0804 1.68868 11.1734 1.6715C11.2663 1.65431 11.3623 1.66923 11.4457 1.71381C11.529 1.75838 11.5947 1.82997 11.632 1.91681C11.6693 2.00365 11.676 2.10059 11.6509 2.19172L10.0509 7.20839C9.99807 7.33466 9.98787 7.47049 10.0047 7.60423C10.0216 7.73797 10.0706 7.86562 10.1476 7.97624C10.2247 8.08686 10.3274 8.17715 10.447 8.23935C10.5665 8.30156 10.6994 8.33383 10.8342 8.33339H16.6676C16.8253 8.33285 16.9799 8.37707 17.1134 8.46091C17.247 8.54474 17.354 8.66476 17.4221 8.80701C17.4902 8.94926 17.5165 9.1079 17.498 9.26451C17.4795 9.42111 17.4169 9.56926 17.3176 9.69172L9.06756 18.1917C9.00567 18.2632 8.92134 18.3114 8.8284 18.3286C8.73547 18.3458 8.63945 18.3309 8.55611 18.2863C8.47278 18.2417 8.40707 18.1701 8.36978 18.0833C8.33248 17.9965 8.32582 17.8995 8.35089 17.8084L9.95089 12.7917C9.99807 12.6655 10.0139 12.5296 9.99706 12.3959C9.98021 12.2621 9.93117 12.1345 9.85415 12.0239C9.77712 11.9132 9.67441 11.823 9.55483 11.7608C9.43524 11.6986 9.30235 11.6663 9.16756 11.6667H3.33422Z"
+              stroke="#F34242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <h3 class="text-lg mt-4 mb-1 font-semibold">Lightning fast</h3>
+          <p class="text-zinc-500 text-sm">
+            Loads -90kb from cache in less than 20ms average.
+            Beats your own browser.
+          </p>
+        </article>
+
+        <article class="bg-white border border-zinc-100 p-6 rounded-xl grow basis-60">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path
+              d="M10 18.3333C14.6024 18.3333 18.3333 14.6023 18.3333 9.99996C18.3333 5.39759 14.6024 1.66663 10 1.66663C5.39763 1.66663 1.66667 5.39759 1.66667 9.99996C1.66667 14.6023 5.39763 18.3333 10 18.3333Z"
+              stroke="#F34242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M1.66667 10H18.3333" stroke="#F34242" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path
+              d="M10 1.66663C12.0833 4.16663 13.3333 6.66663 13.3333 9.99996C13.3333 13.3333 12.0833 15.8333 10 18.3333"
+              stroke="#F34242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M10 1.66663C7.91667 4.16663 6.66667 6.66663 6.66667 9.99996C6.66667 13.3333 7.91667 15.8333 10 18.3333"
+              stroke="#F34242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <h3 class="text-lg mt-4 mb-1 font-semibold">Multi-language</h3>
+          <p class="text-zinc-500 text-sm">
+            Available in English, Spanish, French, German... and more. <br /> Your language, your tasks.
+          </p>
+        </article>
+
+        <article class="bg-white border border-zinc-100 p-6 rounded-xl grow basis-60">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path
+              d="M1.7181 10.2903C1.64865 10.1032 1.64865 9.8974 1.7181 9.7103C2.39452 8.07018 3.5427 6.66783 5.01708 5.68105C6.49146 4.69426 8.22564 4.16748 9.99977 4.16748C11.7739 4.16748 13.5081 4.69426 14.9825 5.68105C16.4568 6.66783 17.605 8.07018 18.2814 9.7103C18.3509 9.8974 18.3509 10.1032 18.2814 10.2903C17.605 11.9304 16.4568 13.3328 14.9825 14.3196C13.5081 15.3063 11.7739 15.8331 9.99977 15.8331C8.22564 15.8331 6.49146 15.3063 5.01708 14.3196C3.5427 13.3328 2.39452 11.9304 1.7181 10.2903Z"
+              stroke="#F34242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M9.99977 12.5003C11.3805 12.5003 12.4998 11.381 12.4998 10.0003C12.4998 8.61959 11.3805 7.5003 9.99977 7.5003C8.61906 7.5003 7.49977 8.61959 7.49977 10.0003C7.49977 11.381 8.61906 12.5003 9.99977 12.5003Z"
+              stroke="#F34242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <h3 class="text-lg mt-4 mb-1 font-semibold">Open source</h3>
+          <p class="text-zinc-500 text-sm">
+            No premium tiers, no ads, no catches. <br />Open source and free to use forever.
+          </p>
+        </article>
+
+        <article class="bg-white border border-zinc-100 p-6 rounded-xl grow basis-60">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F34242" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.9 4.9 1.4 1.4" />
+            <path d="m17.7 17.7 1.4 1.4" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.3 17.7-1.4 1.4" />
+            <path d="m19.1 4.9-1.4 1.4" />
+          </svg>
+          <h3 class="text-lg mt-4 mb-1 font-semibold">Light &amp; dark mode</h3>
+          <p class="text-zinc-500 text-sm">
+            Automatically matches your system theme or switch manually for comfortable viewing.
+          </p>
+        </article>
+      </section>
+
+      <section class="py-16 w-full md:py-48 pb-8 md:pb-32" id="how-to-install" aria-labelledby="setup-heading">
+        <div class="flex flex-col gap-3 md:items-center md:justify-center md:text-center text-balance">
+          <span class="text-accent">Easy to use</span>
+          <div class="flex flex-col gap-2">
+            <h2 id="setup-heading" class="text-2xl font-semibold">
+              How to replace my browser's new tab?
+            </h2>
+            <p class="text-zinc-500">
+              Quick setup, no matter which browser you use.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4 w-full mt-8">
+          <div class="flex flex-wrap gap-4">
+            <article
+              class="basis-64 grow flex items-center gap-4 flex-col md:flex-row justify-between bg-white border border-zinc-100 p-6 rounded-xl w-full">
+              <div class="flex gap-4 items-center" role="img"
+                aria-label="Supported browsers: Chrome, Brave, Edge, Arc, and Vivaldi">
+                <div class="flex gap-2 items-center shrink-0">
+                  <img src="/browser-logos/chrome-logo.svg" alt="Google Chrome" loading="lazy" />
+                </div>
+                <div class="flex gap-2 items-center shrink-0">
+                  <img src="/browser-logos/brave-logo.svg" alt="Brave" loading="lazy" />
+                </div>
+                <div class="flex gap-2 items-center shrink-0">
+                  <img src="/browser-logos/edge-logo.svg" alt="Microsoft Edge" loading="lazy" />
+                </div>
+                <div class="flex gap-2 items-center shrink-0">
+                  <img src="/browser-logos/arc-logo.svg" alt="Arc" loading="lazy" />
+                </div>
+                <div class="flex gap-2 items-center shrink-0">
+                  <img src="/browser-logos/vivaldi-logo.svg" alt="Vivaldi" loading="lazy" />
+                </div>
+              </div>
+              <a href="https://chromewebstore.google.com/detail/tabcrush/nhecpefgoajioccoegknafmhpeajicid"
+                class=" rounded-full text-nowrap w-full md:w-auto text-center text-white text-sm bg-zinc-700 border border-zinc-100 px-3 py-2  hover:bg-accent-dark hover:text-white duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2 hover:scale-[1.02] hover:rotate-2"
+                aria-label="Install browser extension for Chrome, Brave, Edge, Arc, and Vivaldi">
+                Install extension
+              </a>
+            </article>
+
+            <article
+              class="md:w-auto basis-64 lg:grow flex items-center gap-4 flex-col md:flex-row justify-between bg-white border border-zinc-100 p-6 rounded-xl w-full grow md:grow-0">
+              <div class="flex gap-2 items-center">
+                <img src="/browser-logos/firefox-logo.svg" alt="Mozilla Firefox" loading="lazy" />
+              </div>
+              <button
+                class=" rounded-full text-nowrap w-full md:w-auto text-center text-white text-sm bg-zinc-700 border border-zinc-100 px-3 py-2  hover:bg-accent-dark hover:text-white duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2 hover:scale-[1.02] hover:rotate-2"
+                aria-label="Coming soon" disabled>
+                Coming soon
+              </button>
+              <!-- <button
+                class=" rounded-full text-nowrap w-full md:w-auto text-center text-white text-sm bg-zinc-700 border border-zinc-100 px-3 py-2  hover:bg-accent-dark hover:text-white duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2 hover:scale-[1.02] hover:rotate-2"
+                aria-label="Install Firefox extension">
+                Install extension
+              </button> -->
+            </article>
+          </div>
+
+          <article
+            class="flex flex-wrap gap-4 justify-between items-end bg-white border border-zinc-100 p-6 rounded-xl w-full">
+            <div class="flex gap-4 items-start flex-wrap">
+
+              <div class="flex gap-2 items-center shrink-0">
+                <img src="/browser-logos/safari-logo.svg" alt="Safari" loading="lazy" />
+              </div>
+              <h3 class="sr-only">Safari Setup Instructions</h3>
+              <ol class="text-sm list-decimal list-inside text-zinc-500 leading-6 min-w-32"
+                aria-label="Safari setup steps">
+                <li>Set https://www.tabcrush.com/new as favorite</li>
+                <li>Open Safari Settings</li>
+                <li>Go to "General" tab</li>
+                <li>Choose "New Tabs Open With" -> "Favorites" -> https://www.tabcrush.com/new</li>
+              </ol>
+            </div>
+            <a href="https://www.tabcrush.com/new" target="_blank" rel="noopener noreferrer"
+              class="w-full sm:w-auto text-center bg-zinc-100 text-nowrap text-zinc-700 px-4 py-2 rounded-full border border-zinc-200 text-sm hover:bg-zinc-200 duration-300 ease-in-out hover:scale-[1.02] hover:rotate-1 focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2"
+              aria-describedby="demo-description">Go to app</a>
+          </article>
+          <span class="w-full py-8">
+            <div class="flex items-center gap-4">
+              <div class="border-t border-zinc-200 w-full"></div>
+              <span class="text-zinc-500 text-sm">
+                OR
+              </span>
+              <div class="border-t border-zinc-200 w-full"></div>
+            </div>
+          </span>
+        </div>
+        </span>
+        <article
+          class="flex flex-wrap gap-8 justify-between flex-col items-center  border border-zinc-100 p-6 rounded-xl w-full">
+          <div class="flex gap-4 flex-col text-center italic">
+            <img src="/logo.svg" alt="Safari" loading="lazy" class="max-h-16 animate-heartbeat" />
+            <h3 class="text-2xl">Just <span class="italic text-center ">open it</span><br /> to
+              <span class="italic font-semibold">start crushing
+                tasks</span>
+            </h3>
+          </div>
+          <a href="https://www.tabcrush.com/new" target="_blank" rel="noopener noreferrer"
+            class="bg-accent-dark hover:bg-accent-dark-hover text-white px-4 py-2 rounded-full duration-300 ease-in-out hover:scale-[1.02] hover:-rotate-1 focus:outline-none focus:ring-2 focus:ring-accent-dark focus:ring-offset-2"
+            aria-describedby="demo-description">Open in a new tab</a>
+        </article>
+  </div>
+  </section>
+  </main>
+
+  <footer
+    class="flex flex-wrap justify-start sm:justify-between items-center gap-4 text-zinc-500 text-sm bg-white w-full py-4 px-6 rounded-xl sm:rounded-full border border-zinc-100 max-w-[1000px] mx-auto"
+    role="contentinfo">
+    <div class="flex items-center gap-4 order-last sm:order-first">
+      <a href="https://www.x.com/danicaleroo" target="_blank" rel="noopener noreferrer"
+        class="hover:text-zinc-700 duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2 rounded">Built
+        by @danicaleroo</a>
+      <a href="https://www.mirus.studio/en?utm_source=tabcrush" target="_blank" rel="noopener noreferrer"
+        class="hover:text-zinc-700 duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2 rounded">Mirus
+        Studio</a>
+    </div>
+    <div class="flex items-center gap-4 flex-wrap">
+      <a href="/privacy"
+        class="hover:text-zinc-700 duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2 rounded">Privacy
+        policy</a>
+      <a href="https://github.com/danicaleroo/tabcrush" target="_blank" rel="noopener noreferrer"
+        class="order-first sm:order-last hover:text-zinc-700 duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2 rounded flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <g clip-path="url(#clip0_69_1977)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+              fill="currentColor" />
+          </g>
+          <defs>
+            <clipPath id="clip0_69_1977">
+              <rect width="16" height="16" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        Check code on GitHub</a>
+    </div>
+
+  </footer>
+  </div>
+</body>
+
+</html>

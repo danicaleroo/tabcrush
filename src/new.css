@@ -1,0 +1,313 @@
+@import "./base.css";
+
+@font-face {
+	font-family: "InterTight";
+	src: url("/fonts/InterDisplay-Medium.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: optional;
+}
+
+@theme {
+	--font-inter: -apple-system, "InterTight", sans-serif;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	@apply font-inter text-sm tracking-[0.0125em] font-medium;
+}
+
+/* --- Utility Styles --- */
+.icon {
+	@apply text-current;
+}
+
+/* --- Animation Variables --- */
+:root {
+	--animation-tab: 300ms;
+	--animation-stagger: 40ms;
+	--ease-primary: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Tasks Panel & Container --- */
+#tasks-panel {
+	height: var(--preload-panel-height, auto);
+	contain: layout style;
+	overflow: hidden;
+	position: relative;
+}
+
+#tasks-panel.animating-height {
+	transition: height var(--animation-tab) var(--ease-primary);
+}
+
+#tasks-container {
+	transform: translateY(0);
+	transition:
+		transform var(--dur-base) var(--ease-primary),
+		height 250ms var(--ease-primary);
+	overflow: hidden;
+	position: relative;
+}
+
+#tasks-container.empty {
+	@apply h-0;
+}
+
+/* --- Lists --- */
+#completed-list > .task-item:first-child {
+	@apply mt-0;
+}
+
+/* --- Tabs --- */
+.tabs-overlay {
+	transition: clip-path var(--animation-tab) var(--ease-primary);
+	z-index: 1;
+}
+
+.tabs-overlay.animating {
+	will-change: clip-path;
+}
+
+.tabs-overlay > div {
+	background-color: var(--color-50);
+	border-radius: 999px;
+	color: var(--color-600);
+	z-index: 0;
+}
+
+[role="tab"] {
+	position: relative;
+	z-index: 2;
+	color: var(--color-400);
+	transition: color var(--animation-tab) var(--ease-primary);
+}
+
+[role="tab"][aria-selected="true"] {
+	color: transparent;
+}
+
+/* --- Settings Dialog --- */
+#settings-dialog {
+	transition:
+		opacity var(--dur-fade) var(--ease-out),
+		transform var(--dur-fade) var(--ease-out),
+		overlay var(--dur-fade) var(--ease-out),
+		display var(--dur-fade) var(--ease-out);
+}
+
+#settings-dialog::backdrop {
+	background-color: hsla(var(--color-50), 0.75);
+	backdrop-filter: blur(1px);
+	transition:
+		opacity var(--dur-fade) var(--ease-out),
+		overlay var(--dur-fade) var(--ease-out),
+		display var(--dur-fade) var(--ease-out);
+}
+
+@starting-style {
+	#settings-dialog[open] {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+
+	#settings-dialog[open]::backdrop {
+		opacity: 0;
+	}
+}
+
+/* --- Delete Button --- */
+#delete-all-button {
+	@apply pointer-events-none opacity-0;
+	transform: translateY(30%);
+	transition:
+		opacity var(--animation-tab) var(--ease-primary),
+		transform var(--animation-tab) var(--ease-primary);
+}
+
+#delete-all-button.visible {
+	@apply pointer-events-auto opacity-100;
+	transform: translateY(0);
+}
+
+/* --- Task Item --- */
+.task-item {
+	@apply relative flex items-center justify-between gap-4 rounded-md border border-100 bg-white pr-16 text-sm text-600;
+	transition:
+		opacity var(--animation-tab) var(--ease-primary),
+		transform var(--animation-tab) var(--ease-primary),
+		height var(--animation-tab) var(--ease-primary);
+}
+
+.task-item:first-child {
+	@apply mt-2;
+}
+
+/* Task Exit Animation - properly animates height collapse */
+.task-item-exit {
+	@apply opacity-0 overflow-hidden;
+	transform: scale(0.95);
+}
+
+/* Task Exit Fade Only (for last item) */
+.task-item-exit-fade {
+	@apply opacity-0;
+	transform: scale(0.95);
+}
+
+/* Task Stagger Animation */
+.task-item-stagger {
+	@apply opacity-0;
+	transform: translateY(-4px);
+}
+
+/* Task Exit Stagger Animation */
+.task-item-exit-stagger {
+	@apply opacity-0;
+	transform: scale(0.95) translateY(-4px);
+}
+
+.task-toggle {
+	@apply flex w-full cursor-pointer items-center gap-1.5 rounded-md px-3 py-1.5 text-left -outline-offset-2;
+}
+
+.task-toggle span {
+	@apply pointer-events-none break-words;
+}
+
+.task-toggle span.completed {
+	@apply line-through group-hover:no-underline;
+}
+
+.task-toggle:hover span:not(.completed) {
+	@apply line-through;
+}
+
+.task-meta {
+	@apply absolute top-4.5 right-0 flex -translate-y-1/2 items-start justify-end self-stretch p-1;
+}
+
+.task-date {
+	@apply p-1.5 text-xs text-400 group-focus-within:hidden group-hover:hidden;
+}
+
+.task-delete {
+	@apply hidden items-center rounded-md p-2 text-red-400 duration-100 ease-in-out group-focus-within:flex group-hover:flex hover:scale-105 hover:text-red-500 focus-visible:-outline-offset-1 focus-visible:outline-red-500;
+}
+
+.task-icon,
+.delete-icon {
+	@apply h-4 min-w-4;
+}
+
+/* --- Empty State --- */
+.empty-state {
+	@apply flex h-9 items-center text-sm text-400 px-2;
+	opacity: 1;
+	transform: translateY(0);
+	transition:
+		opacity var(--animation-tab) var(--ease-primary),
+		transform var(--animation-tab) var(--ease-primary);
+}
+
+.empty-state-enter {
+	@apply opacity-0;
+	transform: translateY(-8px);
+}
+
+/* --- Settings Section --- */
+.settings-section {
+	@apply flex flex-col gap-2;
+}
+
+.settings-section select {
+	@apply rounded-lg border border-200 bg-50 p-2 text-600 dark:bg-100 dark:text-600 dark:focus-visible:border-300;
+}
+
+.settings-section select option {
+	background-color: var(--color-50);
+	color: var(--color-600);
+}
+
+[data-theme="dark"] .settings-section select option {
+	background-color: var(--color-100);
+	color: var(--color-600);
+}
+
+/* --- Checkbox Group --- */
+.checkbox-group {
+	@apply flex flex-col gap-2;
+}
+
+.checkbox-group label {
+	@apply flex items-center gap-2 font-normal;
+}
+
+.checkbox-group input[type="checkbox"] {
+	@apply h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500;
+}
+
+/* --- Close Button --- */
+.close-button {
+	@apply self-end rounded-full bg-100 px-4 py-2 font-medium text-600 hover:bg-200;
+}
+
+/* --- Input Task Container --- */
+#input-task-container {
+	@apply block;
+	opacity: 1;
+	transform: translateY(0);
+	margin-top: 0;
+	transition:
+		opacity var(--animation-tab) var(--ease-primary),
+		transform var(--animation-tab) var(--ease-primary),
+		margin-top var(--animation-tab) var(--ease-primary);
+}
+
+#input-task-container.input-hidden {
+	@apply opacity-0;
+	/* transform: translateY(-64px); */
+	margin-top: -36px;
+}
+
+/* --- Performance Optimization --- */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* --- Task Icon Swap --- */
+.icon-square-check {
+	display: none;
+}
+.icon-square {
+	display: block;
+}
+
+/* Incomplete task: hover shows check */
+.task-item:not(.completed):hover .icon-square {
+	display: none;
+}
+.task-item:not(.completed):hover .icon-square-check {
+	display: block;
+}
+
+/* Completed task: default check, hover shows empty */
+.task-item.completed .icon-square {
+	display: none;
+}
+.task-item.completed .icon-square-check {
+	display: block;
+}
+.task-item.completed:hover .icon-square {
+	display: block;
+}
+.task-item.completed:hover .icon-square-check {
+	display: none;
+}

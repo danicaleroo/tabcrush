@@ -1,0 +1,19 @@
+{
+	"todo": "What will you do today?",
+	"tasks": "Tasks",
+	"completed": "Completed",
+	"deleteAll": "Delete all",
+	"settings": "Settings",
+	"noCompletedTasks": "No completed tasks",
+	"markTaskIncomplete": "Mark task as incomplete",
+	"markTaskComplete": "Mark task as complete",
+	"taskLabel": "Task",
+	"createdLabel": "Created",
+	"deleteTaskLabel": "Delete task",
+	"close": "Close",
+	"addNewTask": "Add new task",
+	"inputTaskHelp": "Press Enter to add task",
+	"deleteAllDescription": "Delete all completed tasks",
+	"openSettingsDescription": "Open application settings",
+	"visitGithub": "Visit GitHub repository"
+}

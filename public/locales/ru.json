@@ -1,0 +1,19 @@
+{
+	"todo": "Что вы будете делать сегодня?",
+	"tasks": "Задачи",
+	"completed": "Выполнено",
+	"deleteAll": "Удалить всё",
+	"settings": "Настройки",
+	"noCompletedTasks": "Нет выполненных задач",
+	"markTaskIncomplete": "Отметить задачу как невыполненную",
+	"markTaskComplete": "Отметить задачу как выполненную",
+	"taskLabel": "Задача",
+	"createdLabel": "Создано",
+	"deleteTaskLabel": "Удалить задачу",
+	"close": "Закрыть",
+	"addNewTask": "Добавить новую задачу",
+	"inputTaskHelp": "Нажмите Enter, чтобы добавить задачу",
+	"deleteAllDescription": "Удалить все выполненные задачи",
+	"openSettingsDescription": "Открыть настройки приложения",
+	"visitGithub": "Посетить репозиторий GitHub"
+}

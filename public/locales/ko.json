@@ -1,0 +1,19 @@
+{
+	"todo": "오늘 무엇을 하실 건가요?",
+	"tasks": "작업",
+	"completed": "완료됨",
+	"deleteAll": "모두 삭제",
+	"settings": "설정",
+	"noCompletedTasks": "완료된 작업이 없습니다",
+	"markTaskIncomplete": "작업을 미완료로 표시",
+	"markTaskComplete": "작업을 완료로 표시",
+	"taskLabel": "작업",
+	"createdLabel": "생성됨",
+	"deleteTaskLabel": "작업 삭제",
+	"close": "닫기",
+	"addNewTask": "새 작업 추가",
+	"inputTaskHelp": "Enter를 눌러 작업 추가",
+	"deleteAllDescription": "완료된 모든 작업 삭제",
+	"openSettingsDescription": "애플리케이션 설정 열기",
+	"visitGithub": "GitHub 리포지토리 방문"
+}

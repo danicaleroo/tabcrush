@@ -1,0 +1,19 @@
+{
+	"todo": "Cosa farai oggi?",
+	"tasks": "Attività",
+	"completed": "Completato",
+	"deleteAll": "Elimina tutto",
+	"settings": "Impostazioni",
+	"noCompletedTasks": "Nessuna attività completata",
+	"markTaskIncomplete": "Segna attività come non completata",
+	"markTaskComplete": "Segna attività come completata",
+	"taskLabel": "Attività",
+	"createdLabel": "Creato",
+	"deleteTaskLabel": "Elimina attività",
+	"close": "Chiudi",
+	"addNewTask": "Aggiungi nuova attività",
+	"inputTaskHelp": "Premi Invio per aggiungere l'attività",
+	"deleteAllDescription": "Elimina tutte le attività completate",
+	"openSettingsDescription": "Apri le impostazioni dell'applicazione",
+	"visitGithub": "Visita il repository GitHub"
+}

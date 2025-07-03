@@ -1,0 +1,19 @@
+{
+	"todo": "今日は何をしますか？",
+	"tasks": "タスク",
+	"completed": "完了",
+	"deleteAll": "すべて削除",
+	"settings": "設定",
+	"noCompletedTasks": "完了したタスクはありません",
+	"markTaskIncomplete": "タスクを未完了としてマーク",
+	"markTaskComplete": "タスクを完了としてマーク",
+	"taskLabel": "タスク",
+	"createdLabel": "作成日",
+	"deleteTaskLabel": "タスクを削除",
+	"close": "閉じる",
+	"addNewTask": "新しいタスクを追加",
+	"inputTaskHelp": "Enterキーを押してタスクを追加",
+	"deleteAllDescription": "完了したすべてのタスクを削除します",
+	"openSettingsDescription": "アプリケーションの設定を開く",
+	"visitGithub": "GitHubリポジトリにアクセス"
+}

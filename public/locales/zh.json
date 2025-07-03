@@ -1,0 +1,19 @@
+{
+	"todo": "今天你要做什么？",
+	"tasks": "任务",
+	"completed": "已完成",
+	"deleteAll": "全部删除",
+	"settings": "设置",
+	"noCompletedTasks": "沒有已完成的任務",
+	"markTaskIncomplete": "將任務標記為未完成",
+	"markTaskComplete": "將任務標記為已完成",
+	"taskLabel": "任務",
+	"createdLabel": "已創建",
+	"deleteTaskLabel": "刪除任務",
+	"close": "關閉",
+	"addNewTask": "添加新任務",
+	"inputTaskHelp": "按 Enter 鍵添加任務",
+	"deleteAllDescription": "刪除所有已完成的任務",
+	"openSettingsDescription": "打開應用程序設置",
+	"visitGithub": "訪問GitHub存儲庫"
+}

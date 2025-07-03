@@ -1,0 +1,14 @@
+{
+	"redirects": [
+		{
+			"source": "/(.*)",
+			"destination": "https://www.tabcrush.com/$1",
+			"permanent": true,
+			"has": [{ "type": "host", "value": "tabcrush.com" }]
+		}
+	],
+	"rewrites": [
+		{ "source": "/new", "destination": "/new.html" },
+		{ "source": "/privacy", "destination": "/privacy.html" }
+	]
+}
